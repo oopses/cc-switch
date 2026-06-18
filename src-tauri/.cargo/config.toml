@@ -1,0 +1,6 @@
+# Fork CI 用的交叉编译兜底配置
+# 在 arm64 (Apple Silicon) runner 上为 x86_64 编译时，告诉 cargo 用系统 clang 作为 linker
+# 这样就不需要额外的 .cargo 工具链 (rustup target add 已足够)
+[target.x86_64-apple-darwin]
+linker = "clang"
+ar = "ar"
